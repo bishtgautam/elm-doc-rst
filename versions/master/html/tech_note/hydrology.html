@@ -1,0 +1,132 @@
+
+
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>2.1. Hydrology &#8212; ELM Docs E3SM master documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bizstyle.css" />
+    
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="2. ELM Technical Note" href="index.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="index.html" title="2. ELM Technical Note"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">ELM Docs E3SM master documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U"><span class="section-number">2. </span>ELM Technical Note</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">2.1. </span>Hydrology</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="hydrology">
+<span id="rst-hydrology"></span><h1><span class="section-number">2.1. </span>Hydrology<a class="headerlink" href="#hydrology" title="Permalink to this heading">¶</a></h1>
+<p>The model parameterizes interception, throughfall, canopy drip, snow
+accumulation and melt, water transfer between snow layers, infiltration,
+evaporation, surface runoff, sub-surface drainage, redistribution within
+the soil column, and groundwater discharge and recharge to simulate
+changes in canopy water <span class="math notranslate nohighlight">\(\Delta W_{can,\,liq}\)</span> , canopy snow water
+<span class="math notranslate nohighlight">\(\Delta W_{can,\,sno}\)</span> surface water <span class="math notranslate nohighlight">\(\Delta W_{sfc}\)</span> ,
+snow water <span class="math notranslate nohighlight">\(\Delta W_{sno}\)</span> , soil water
+<span class="math notranslate nohighlight">\(\Delta w_{liq,\, i}\)</span> , and soil ice <span class="math notranslate nohighlight">\(\Delta w_{ice,\, i}\)</span> ,
+and water in the unconfined aquifer <span class="math notranslate nohighlight">\(\Delta W_{a}\)</span>  (all in kg
+m<sup>-2</sup> or mm of H<sub>2</sub>O).</p>
+<p>The total water balance of the system is</p>
+<div class="math notranslate nohighlight" id="equation-7-1">
+<span class="eqno">(1)<a class="headerlink" href="#equation-7-1" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{array}{l} {\Delta W_{can,\,liq} +\Delta W_{can,\,sno} +\Delta W_{sfc} +\Delta W_{sno} +} \\ {\sum _{i=1}^{N_{levsoi} }\left(\Delta w_{liq,\, i} +\Delta w_{ice,\, i} \right)+\Delta W_{a} =\left(\begin{array}{l} {q_{rain} +q_{sno} -E_{v} -E_{g} -q_{over} } \\ {-q_{h2osfc} -q_{drai} -q_{rgwl} -q_{snwcp,\, ice} } \end{array}\right) \Delta t} \end{array}\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(q_{rain}\)</span>  is the liquid part of precipitation,
+<span class="math notranslate nohighlight">\(q_{sno}\)</span>  is the solid part of precipitation,
+<span class="math notranslate nohighlight">\(E_{v}\)</span>  is ET from vegetation,
+<span class="math notranslate nohighlight">\(E_{g}\)</span>  is ground evaporation,
+<span class="math notranslate nohighlight">\(q_{over}\)</span>  is surface runoff,
+<span class="math notranslate nohighlight">\(q_{h2osfc}\)</span>  is runoff from surface water storage,
+<span class="math notranslate nohighlight">\(q_{drai}\)</span>  is sub-surface drainage,
+<span class="math notranslate nohighlight">\(q_{rgwl}\)</span>  and
+<span class="math notranslate nohighlight">\(q_{snwcp,ice}\)</span>  are liquid and solid runoff from glaciers and lakes, and runoff from other surface types
+due to snow capping
+(all in kg m<sup>-2</sup>
+s<sup>-1</sup>), <span class="math notranslate nohighlight">\(N_{levsoi}\)</span>  is the number of soil layers
+(note that hydrology calculations are only done over soil layers 1 to
+<span class="math notranslate nohighlight">\(N_{levsoi}\)</span> ; ground levels <span class="math notranslate nohighlight">\(N_{levsoi} +1\)</span> to
+<span class="math notranslate nohighlight">\(N_{levgrnd}\)</span> are currently hydrologically inactive;
+and <span class="math notranslate nohighlight">\(\Delta t\)</span> is the time step (s).</p>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="index.html"
+                          title="previous chapter"><span class="section-number">2. </span>ELM Technical Note</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/tech_note/hydrology.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="index.html" title="2. ELM Technical Note"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">ELM Docs E3SM master documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" ><span class="section-number">2. </span>ELM Technical Note</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">2.1. </span>Hydrology</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright Add-E3SM-Copyright.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
+    </div>
+  </body>
+</html>
