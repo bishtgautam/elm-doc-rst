@@ -6,5 +6,5 @@
 Introduction
 ==============
 
-The E3SM Land Model (ELM) is the land component of DOE's `E3SM Model <http:://e3sm.org>`.
+The E3SM Land Model (ELM) is the land component of DOE's `E3SM Model <http:://e3sm.org>`_.
 
