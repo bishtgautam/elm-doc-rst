@@ -5,6 +5,6 @@
 .. toctree::
    :maxdepth: 2
 
-   introduction.rst
+   overview.rst
    getting-started.rst
 

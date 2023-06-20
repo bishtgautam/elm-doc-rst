@@ -1,6 +1,6 @@
-.. _introduction:
+.. _overview:
 
-**User's Guide to version |version| of the E3SM Land Model (ELM)**
+**User's Guide to the E3SM Land Model (ELM)**
 
 ==============
 Introduction
